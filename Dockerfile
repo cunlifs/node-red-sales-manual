@@ -14,4 +14,6 @@ USER node-red
 RUN npm install node-red
 EXPOSE 1880/tcp
 COPY package.json /usr/src/node-red/package.json
+COPY sales_manual_finder.py /usr/src/node-red/sales_manual_finder.py
+COPY sales_manual_product_lifecycle_extractor.py /usr/src/node-red/sales_manual_product_lifecycle_extractor.py
 CMD npm start node-red
