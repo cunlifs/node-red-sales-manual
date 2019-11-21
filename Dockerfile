@@ -13,5 +13,5 @@ RUN chown -R node-red:node-red /usr/src/node-red
 USER node-red
 RUN npm install node-red
 EXPOSE 1880/tcp
-COPY ./package.json /usr/src/node-red/package.json
+COPY package.json /usr/src/node-red/package.json
 CMD npm start node-red
