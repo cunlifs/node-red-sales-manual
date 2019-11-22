@@ -5,6 +5,7 @@ RUN apt-get update
 RUN apt-get install -y npm
 RUN apt-get install -y python3
 RUN apt-get install -y python3-bs4
+RUN apt-get install -y python3-venv
 RUN mkdir -p /usr/src/node-red
 WORKDIR /usr/src/node-red
 RUN groupadd --force node-red
