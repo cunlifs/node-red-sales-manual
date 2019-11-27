@@ -16,7 +16,10 @@ RUN npm install node-red
 EXPOSE 1880/tcp
 COPY package.json /usr/src/node-red/package.json
 COPY sales_manual_finder.py /usr/src/node-red/sales_manual_finder.py
-COPY sales-manual-reader-flow.json /usr/src/node-red/sales-manual-reader-flow.json
 COPY sales_manual_product_lifecycle_extractor.py /usr/src/node-red/sales_manual_product_lifecycle_extractor.py
+COPY sales-manual-reader-flow.json /usr/src/node-red/sales-manual-reader-flow.json
+RUN chmod 750 /usr/src/node-red/sales-manual-reader-flow.json
+RUN HOSTNAME_SHORT='hostname -s'
+RUN mv /usr/src/node-red/sales-manual-reader-flow.json /usr/src/node-red/.node-red/flows_$HOSTNAME_SHORT.json
 RUN chown node-red:node-red /usr/src/node-red/*
 CMD npm start node-red
