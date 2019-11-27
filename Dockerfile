@@ -24,5 +24,4 @@ COPY package.json /usr/src/node-red/package.json
 #COPY sales_manual_product_lifecycle_extractor.py /usr/src/node-red/sales_manual_product_lifecycle_extractor.py
 #COPY sales-manual-reader-flow.json /usr/src/node-red/sales-manual-reader-flow.json
 RUN /usr/src/node-red/copy_flow.sh
-#CMD npm start node-red
-CMD sleep 60000
+CMD npm start node-red
