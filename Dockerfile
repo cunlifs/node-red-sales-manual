@@ -33,4 +33,4 @@ COPY package.json /usr/src/node-red/package.json
 RUN /usr/src/node-red/copy_flow.sh
 #CMD npm start node-red
 #Removed npm start and added following
-CMD sleep 60000
+CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
