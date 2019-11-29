@@ -5,7 +5,10 @@ RUN apt-get update
 RUN apt-get install -y npm
 RUN apt-get install -y python3
 RUN apt-get install -y python3-bs4
-RUN apt-get install -y python3-venv
+RUN apt-get install -y python3-ven
+# Next 2 lines added to test
+RUN apt-get install -y vim
+RUN apt-get install -y sudo
 RUN mkdir -p /usr/src/node-red
 WORKDIR /usr/src/node-red
 COPY sales_manual_finder.py /usr/src/node-red/sales_manual_finder.py
@@ -24,4 +27,6 @@ COPY package.json /usr/src/node-red/package.json
 #COPY sales_manual_product_lifecycle_extractor.py /usr/src/node-red/sales_manual_product_lifecycle_extractor.py
 #COPY sales-manual-reader-flow.json /usr/src/node-red/sales-manual-reader-flow.json
 RUN /usr/src/node-red/copy_flow.sh
-CMD npm start node-red
+#CMD npm start node-red
+#Removed npm start and added following
+CMD sleep 60000
