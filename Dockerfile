@@ -21,9 +21,9 @@ RUN useradd --home /usr/src/node-red --gid node-red node-red
 RUN chown -R node-red:node-red /usr/src/node-red
 RUN npm install -g --unsafe-perm node-red
 RUN npm install -g --unsafe-perm node-red-admin
+RUN npm install -g --unsafe-perm node-red-contrib-pythonshell
 USER node-red
 #RUN npm install node-red
-RUN npm install node-red-contrib-pythonshell
 EXPOSE 1880/tcp
 COPY package.json /usr/src/node-red/package.json
 #COPY sales_manual_finder.py /usr/src/node-red/sales_manual_finder.py
