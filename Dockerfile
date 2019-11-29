@@ -19,8 +19,9 @@ RUN chmod 750 /usr/src/node-red/copy_flow.sh
 RUN groupadd --force node-red
 RUN useradd --home /usr/src/node-red --gid node-red node-red
 RUN chown -R node-red:node-red /usr/src/node-red
+RUN npm install -g --unsafe-perm node-red
 USER node-red
-RUN npm install node-red
+#RUN npm install node-red
 EXPOSE 1880/tcp
 COPY package.json /usr/src/node-red/package.json
 #COPY sales_manual_finder.py /usr/src/node-red/sales_manual_finder.py
