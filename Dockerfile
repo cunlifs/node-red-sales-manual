@@ -2,13 +2,13 @@ FROM ubuntu
 CMD /bin/bash
 MAINTAINER Stu Cunliffe,UK s_cunliffe@uk.ibm.com
 RUN apt-get update
-RUN apt-get install -y npm
-RUN apt-get install -y python3
-RUN apt-get install -y python3-bs4
-RUN apt-get install -y python3-venv
+RUN apt-get install -y npm python3 python3-bs4 python3-venv vim curl
+#RUN apt-get install -y python3
+#RUN apt-get install -y python3-bs4
+#RUN apt-get install -y python3-venv
 # Next 2 lines added to test
-RUN apt-get install -y vim
-RUN apt-get install -y sudo
+#RUN apt-get install -y vim
+#RUN apt-get install -y sudo
 RUN mkdir -p /usr/src/node-red
 WORKDIR /usr/src/node-red
 COPY sales_manual_finder.py /usr/src/node-red/sales_manual_finder.py
