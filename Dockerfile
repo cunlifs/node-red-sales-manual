@@ -2,7 +2,7 @@ FROM ubuntu
 CMD /bin/bash
 MAINTAINER Stu Cunliffe,UK s_cunliffe@uk.ibm.com
 RUN apt-get update
-RUN apt-get install -y npm python3 python3-bs4 python3-venv vim curl
+#RUN apt-get install -y npm python3 python3-bs4 python3-venv vim curl
 #RUN apt-get install -y python3
 #RUN apt-get install -y python3-bs4
 #RUN apt-get install -y python3-venv
