@@ -29,7 +29,10 @@ USER node-red
 EXPOSE 1880/tcp
 COPY package.json /usr/src/node-red/package.json
 COPY ibm-credentials.env /usr/src/node-red/ibm-credentials.env
-ENV 
+ENV ASSISTANT_APIKEY=THI2ACNDZyF24qgk9V4gMx-SaR7N3u3pXAE5cC3ofXS2
+ENV ASSISTANT_IAM_APIKEY=THI2ACNDZyF24qgk9V4gMx-SaR7N3u3pXAE5cC3ofXS2
+ENV ASSISTANT_URL=https://gateway-lon.watsonplatform.net/assistant/api
+ENV ASSISTANT_AUTH_TYPE=iam
 #COPY sales_manual_finder.py /usr/src/node-red/sales_manual_finder.py
 #COPY sales_manual_product_lifecycle_extractor.py /usr/src/node-red/sales_manual_product_lifecycle_extractor.py
 #COPY sales-manual-reader-flow.json /usr/src/node-red/sales-manual-reader-flow.json
@@ -37,4 +40,4 @@ RUN /usr/src/node-red/copy_flow.sh
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 #CMD npm start node-red
 #Removed npm start and added following
-CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
+CMD export IBM_CREDENTIALS_FILE="/usr/src/node-red/ibm-credentials.env"; node-red /usr/src/node-red/sales-manual-reader-flow.json
