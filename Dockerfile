@@ -29,6 +29,7 @@ USER node-red
 EXPOSE 1880/tcp
 COPY package.json /usr/src/node-red/package.json
 COPY ibm-credentials.env /usr/src/node-red/ibm-credentials.env
+ENV 
 #COPY sales_manual_finder.py /usr/src/node-red/sales_manual_finder.py
 #COPY sales_manual_product_lifecycle_extractor.py /usr/src/node-red/sales_manual_product_lifecycle_extractor.py
 #COPY sales-manual-reader-flow.json /usr/src/node-red/sales-manual-reader-flow.json
