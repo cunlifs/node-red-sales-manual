@@ -5,6 +5,7 @@ COPY sales-manual-reader-flow.json /usr/src/node-red/sales-manual-reader-flow.js
 COPY package.json /usr/src/node-red/package.json
 RUN chmod 750 /usr/src/node-red/sales-manual-reader-flow.json
 RUN chown -R node-red:node-red /usr/src/node-red
+EXPOSE 1880/tcp
 USER node-red
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
