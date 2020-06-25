@@ -17,8 +17,7 @@ RUN npm install ibm_db
 
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 
-RUN cd /usr/src/node-red
 #install Watson service nodes and dashdb clinet for Db2
-RUN npm install node-red-nodes-cf-sqldb-dashdb
+#RUN npm install node-red-nodes-cf-sqldb-dashdb
 
 CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
