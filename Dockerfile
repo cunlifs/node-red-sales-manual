@@ -10,8 +10,9 @@ ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 
 RUN mkdir /data
-RUN chuser --home-dir /usr/src/node-red -U node-red \
-    && chown -R node-red:node-red /data \
+# RUN chuser --home-dir /usr/src/node-red -U node-red \
+
+RUN chown -R node-red:node-red /data \
     && chown -R node-red:node-red /usr/src/node-red
 
 USER node-red
