@@ -9,12 +9,6 @@ RUN chown -R node-red:node-red /usr/src/node-red
 ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 
-RUN mkdir /data
-# RUN chuser --home-dir /usr/src/node-red -U node-red \
-
-RUN chown -R node-red:node-red /data \
-    && chown -R node-red:node-red /usr/src/node-red
-
 USER node-red
 WORKDIR /usr/src/node-red
 
@@ -22,10 +16,7 @@ WORKDIR /usr/src/node-red
 RUN npm install ibm_db
 
 #install Watson service nodes and dashdb clinet for Db2
-#RUN npm install node-red-nodes-cf-sqldb-dashdb
-        
-# User configuration directory volume instead of ~/.node-red
-VOLUME ["/data"]
+RUN npm install node-red-nodes-cf-sqldb-dashdb
 
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 
