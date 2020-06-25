@@ -22,7 +22,7 @@ WORKDIR /usr/src/node-red
 RUN npm install ibm_db
 
 #install Watson service nodes and dashdb clinet for Db2
-RUN npm install node-red-nodes-cf-sqldb-dashdb
+#RUN npm install node-red-nodes-cf-sqldb-dashdb
         
 # User configuration directory volume instead of ~/.node-red
 VOLUME ["/data"]
