@@ -29,10 +29,4 @@ VOLUME ["/data"]
 
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 
-# Environment variable holding file path for flows configuration
-#ENV FLOWS=flows.json
-ENV FLOWS=sales-manual-reader-flow.json
-
-CMD ["node", "./node_modules/node-red/red.js", "--userDir", "/data"]
-
-#CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
+CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
