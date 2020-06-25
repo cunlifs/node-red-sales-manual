@@ -9,6 +9,8 @@ RUN chown -R node-red:node-red /usr/src/node-red
 ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 
+RUN cd /usr/local
+
 USER node-red
 WORKDIR /usr/src/node-red
 
