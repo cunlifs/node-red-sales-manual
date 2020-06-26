@@ -3,6 +3,8 @@ FROM cunlifs/ubuntu:v0.5
 ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 
+COPY package.json /usr/src/node-red/package.json
+
 # Db2 client support
 RUN npm install ibm_db
 
@@ -10,10 +12,8 @@ RUN npm install ibm_db
 RUN apt-get install -y numactl
 
 # install libibmc++
-RUN curl -sL http://public.dhe.ibm.com/software/server/POWER/Linux/xl-compiler/eval/ppc64le/rhel7/ibm-xl-compiler-eval.repo \
-        && apt-get install -y install libxlc-16.1.1.3-190404a.ppc64le.rpm
-
-COPY package.json /usr/src/node-red/package.json
+RUN curl -sL http://public.dhe.ibm.com/software/server/POWER/Linux/xl-compiler/eval/ppc64le/rhel7/ibm-xl-compiler-eval.repo
+RUN apt-get install -y install libxlc-16.1.1.3-190404a.ppc64le.rpm
 
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 
