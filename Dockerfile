@@ -7,13 +7,11 @@ COPY package.json /usr/src/node-red/package.json
 RUN chmod 750 /usr/src/node-red/sales-manual-reader-flow.json
 RUN chown -R node-red:node-red /usr/src/node-red
 
-RUN apt-get install -y yum
-
 ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 
 # runtime support to enable npm build capabilities
-RUN yum -y install libstdc++ make gcc-c++ numactl-devel
+RUN apt-get install numactl
 
 #install Watson service nodes and dashdb clinet for Db2
 RUN npm install -g --unsafe-perm node-red-nodes-cf-sqldb-dashdb
