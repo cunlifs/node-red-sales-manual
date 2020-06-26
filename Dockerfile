@@ -9,6 +9,9 @@ RUN chown -R node-red:node-red /usr/src/node-red
 ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 
+# runtime support to enable npm build capabilities
+RUN yum -y install libstdc++ make gcc-c++ numactl-devel
+
 #install Watson service nodes and dashdb clinet for Db2
 RUN npm install -g --unsafe-perm node-red-nodes-cf-sqldb-dashdb
 
@@ -19,5 +22,4 @@ RUN npm install ibm_db
 
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 
-#CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
-CMD /bin/bash
+CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
