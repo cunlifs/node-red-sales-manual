@@ -11,7 +11,13 @@ RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 
 # runtime support to enable npm build capabilities
 RUN apt-get install -y numactl
-RUN apt-get install -y libstdc++6 gcc g++ perl
+
+# install libibmc++
+RUN wget -q http://public.dhe.ibm.com/software/server/POWER/Linux/xl-compiler/eval/ppc64le/ubuntu/public.gpg -O- | sudo apt-key add -
+RUN echo "deb http://public.dhe.ibm.com/software/server/POWER/Linux/xl-compiler/eval/ppc64le/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/ibm-xl-compiler-eval.list
+RUN apt-get update
+RUN apt-get install -y xlc.16.1.1
+RUN /opt/ibm/xlC/16.1.1/bin/xlc_configure
 
 #install Watson service nodes and dashdb clinet for Db2
 RUN npm install -g --unsafe-perm node-red-nodes-cf-sqldb-dashdb
