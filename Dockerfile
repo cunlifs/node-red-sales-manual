@@ -9,15 +9,14 @@ RUN chown -R node-red:node-red /usr/src/node-red
 ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 
+#install Watson service nodes and dashdb clinet for Db2
+RUN npm install -g --unsafe-perm node-red-nodes-cf-sqldb-dashdb
+
 USER node-red
 
 # Db2 client support 
 RUN npm install ibm_db
 
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
-
-#install Watson service nodes and dashdb clinet for Db2
-RUN npm install -g --unsafe-perm node-red-nodes-cf-sqldb-dashdb
-#RUN npm install node-red-nodes-cf-sqldb-dashdb
 
 CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
