@@ -11,7 +11,7 @@ RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 
 # runtime support to enable npm build capabilities
 RUN apt-get install -y numactl
-RUN apt-get install -y libstdc++6
+RUN apt-get install -y xlc.16.1.1
 
 #install Watson service nodes and dashdb clinet for Db2
 RUN npm install -g --unsafe-perm node-red-nodes-cf-sqldb-dashdb
