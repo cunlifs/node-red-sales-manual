@@ -12,7 +12,7 @@ RUN npm install ibm_db
 RUN apt-get install -y numactl
 
 # install libibmc++
-RUN curl -sL http://public.dhe.ibm.com/software/server/POWER/Linux/xl-compiler/eval/ppc64le/rhel7/ibm-xl-compiler-eval.repo
+RUN curl -sL http://public.dhe.ibm.com/software/server/POWER/Linux/xl-compiler/eval/ppc64le/ubuntu/public.gpg
 RUN apt-get install -y libxlc-16.1.1
 
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
