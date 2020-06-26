@@ -11,7 +11,7 @@ ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 
 # runtime support to enable npm build capabilities
-RUN apt-get install numactl
+RUN apt-get install -y numactl
 
 #install Watson service nodes and dashdb clinet for Db2
 RUN npm install -g --unsafe-perm node-red-nodes-cf-sqldb-dashdb
