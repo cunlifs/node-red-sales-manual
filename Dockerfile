@@ -19,4 +19,5 @@ RUN npm install ibm_db
 
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 
-CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
+#CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
+CMD /bin/bash
