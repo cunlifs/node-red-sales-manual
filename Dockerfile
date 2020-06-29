@@ -11,6 +11,7 @@ RUN npm install ibm_db
 # runtime support to enable npm build capabilities
 RUN apt-get install -y numactl
 RUN apt-get install -y gnupg2
+RUN apt-get install -y wget
 
 # install libibmc++
 RUN wget -q http://public.dhe.ibm.com/software/server/POWER/Linux/xl-compiler/eval/ppc64le/ubuntu/public.gpg -O- | apt-key add -
