@@ -6,10 +6,10 @@ COPY package.json /usr/src/node-red/package.json
 EXPOSE 1880/tcp
 RUN chmod 750 /usr/src/node-red/sales-manual-reader-flow.json
 #RUN chown -R node-red:node-red /usr/src/node-red
-RUN chmod 775 /usr/src/node-red
+RUN chmod 777 /usr/src/node-red
 ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 #USER node-red
-CMD sleep 60000
-#RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
+#CMD sleep 60000
+RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 #CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
