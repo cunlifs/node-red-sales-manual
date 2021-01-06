@@ -11,6 +11,7 @@ ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 RUN useradd nodered
 USER nodered
+WORKDIR /usr/src/node-red
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
 CMD sleep 60000
 #CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
