@@ -10,8 +10,7 @@ RUN chmod 777 /usr/src/node-red
 ENV http_proxy http://9.196.156.29:3128
 ENV https_proxy http://9.196.156.29:3128
 RUN python3 -m venv /usr/src/node-red/venv --system-site-packages
-RUN useradd -m -l -d /home/nodered -u 1000730033 -g 0 nodered
-USER nodered
+RUN useradd -m -l -d /home/nodered -u 1000730033 -g 0 nodered -p abc1234
 WORKDIR /usr/src/node-red
 CMD sleep 60000
 #CMD node-red /usr/src/node-red/sales-manual-reader-flow.json
